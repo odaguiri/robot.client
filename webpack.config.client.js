@@ -16,17 +16,45 @@ const config = {
         publicPath: "/dist/"
     },
     module: {
-        rules: [
+      rules: [
+        {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            use: ["babel-loader"]
+        },
+        {
+            test: /\.(ttf|eot|svg|gif|jpg|png)(\?[\s\S]+)?$/,
+            use: "file-loader"
+        },
+        {
+          test: /\.(scss)$/,
+          use: [
             {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                use: ["babel-loader"]
+              // Adds CSS to the DOM by injecting a `<style>` tag
+              loader: 'style-loader'
             },
             {
-                test: /\.(ttf|eot|svg|gif|jpg|png)(\?[\s\S]+)?$/,
-                use: "file-loader"
+              // Interprets `@import` and `url()` like `import/require()` and will resolve them
+              loader: 'css-loader'
+            },
+            {
+              // Loader for webpack to process CSS with PostCSS
+              loader: 'postcss-loader',
+              options: {
+                plugins: function () {
+                  return [
+                    require('autoprefixer')
+                  ];
+                }
+              }
+            },
+            {
+              // Loads a SASS/SCSS file and compiles it to CSS
+              loader: 'sass-loader'
             }
-        ]
+          ]
+        }
+      ]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

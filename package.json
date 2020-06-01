@@ -2,22 +2,31 @@
   "name": "client",
   "version": "0.0.1",
   "description": "Controls robot frontend",
-  "main": "template.js",
+  "main": "main.js",
   "license": "MIT",
-  "main": "template.js",
   "scripts": {
     "build": "webpack --mode=development --config webpack.config.server.js",
     "development": "node ./dist/server.generated.js"
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.13.0",
+    "autoprefixer": "^9.8.0",
+    "bootstrap": "^4.5.0",
+    "css-loader": "^3.5.3",
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
+    "jquery": "^3.5.1",
+    "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.21",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
